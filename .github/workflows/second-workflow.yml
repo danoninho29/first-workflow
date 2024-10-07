@@ -28,7 +28,7 @@ jobs:
       - name: Passo 5
         run: echo "rodando passo 5"
       - name: Passo 6
-        run: echo "rodando passo 6"  
+        run: echo "rodando passo 6"  | exit 1
 
   job3:
     name: Terceiro fluxo
