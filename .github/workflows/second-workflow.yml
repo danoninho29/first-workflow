@@ -1,0 +1,45 @@
+name: Workflow com dependência de Jobs falho
+
+on:
+  push:
+    branches: [main, master, develop, hotfix]
+  pull_request:
+    branches: [main, master, develop, hotfix]
+
+jobs:
+  job1:
+    name: Primeiro fluxo
+    runs-on: ubuntu-latest
+    steps:
+      - name: Passo 1
+        run: echo "rodando passo 1"
+      - name: Passo 2
+        run: echo "rodando passo 2"       
+      - name: Passo 3
+        run: echo "rodando passo 3"  
+
+  job2:
+    name: Segundo fluxo
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Passo 4
+        run: echo "rodando passo 4"
+      - name: Passo 5
+        run: echo "rodando passo 5"
+      - name: Passo 6
+        run: echo "rodando passo 6"  
+
+  job3:
+    name: Terceiro fluxo
+    runs-on: ubuntu-latest
+    needs: job2
+    steps:
+      - name: Passo 7
+        run: echo "rodando passo 7"
+      - name: Passo 8
+        run: echo "rodando passo 8"
+      - name: Passo 9
+        run: echo "rodando passo 9"
+      - name: Passo 10
+        run: echo "rodando passo 10"
